@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-16"?>
+<application xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sienatool="http://www.todo.com" siena:serviceId="Flatterist" xmlns="http://wadl.dev.java.net/2009/02">
+  <grammars>
+    <siena:jsonTypes targetNamespace="http://www.todo.com" xmlns:wadl="http://wadl.dev.java.net/2009/02">
+      <siena:object name="GetCompliment_Root">
+        <siena:property name="HashKey" type="string" />
+        <siena:property name="Description" type="string" />
+      </siena:object>
+    </siena:jsonTypes>
+  </grammars>
+  <siena:authenticationProviders />
+  <siena:template />
+  <resources base="https://microsoft-apiappe5845cb9e5ef419199ec91ab9ff9c324.azurewebsites.net">
+    <resource path="api/flatterist">
+      <method name="Get" id="GetCompliment" siena:requiresAuthentication="false">
+        <request />
+        <response siena:resultForm="single">
+          <representation mediaType="application/json">
+            <param name="GetCompliment_Name" type="sienatool:GetCompliment_Root" style="Plain" path="" />
+          </representation>
+        </response>
+      </method>
+    </resource>
+    <resource path="/api/Twilio">
+      <method name="GET" id="SendMessage" siena:requiresAuthentication="false">
+        <doc />
+        <request>
+          <param name="phoneNumber" style="query" type="xs:string" required="true" />
+          <param name="flatteristId" style="query" type="xs:string" required="true" />
+          <param name="flattery" style="query" type="xs:string" required="true" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="xs:string" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>
