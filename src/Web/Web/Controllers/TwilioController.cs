@@ -12,9 +12,9 @@ namespace Web.Controllers
     {
         public string Get([FromUri] string phoneNumber, string flatteristId, string flattery)
         {
-            const string accountSid = "AC4a8be98fbae816067e0c0517858f56fd";
-            const string authToken = "03e552278c505744bb862fa53e24b073";
-            const string fromNumber = "+12245883104";
+            const string accountSid = "YOURSIDE";
+            const string authToken = "YOURTOKEN";
+            const string fromNumber = "YOURNUMBER";
 
             var client = new TwilioRestClient(accountSid, authToken);
 
